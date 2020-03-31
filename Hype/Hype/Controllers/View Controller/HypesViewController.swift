@@ -43,40 +43,70 @@ class HypesViewController: UIViewController {
     }
     
     func updateViews() {
-        self.hypesTableView.reloadData()
-        self.refreshControl.endRefreshing()
+        DispatchQueue.main.async {
+            self.hypesTableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
+        
     }
     
-    
-    //MARK: - Actions
-    
-    @IBAction func composeButtonTapped(_ sender: Any) {
-        
+    func presentAddHypeAlert(for hype: Hype?) {
         let alert = UIAlertController(title: "Get Hyped!", message: "What is Hyped may never die", preferredStyle: .alert)
         
         alert.addTextField { (textField) in
             textField.placeholder = "hype message"
             textField.autocorrectionType = .yes
             textField.delegate = self
+            
+            textField.autocapitalizationType = .sentences
+            if let hype = hype {
+                textField.text = hype.body
+            }
         }
+        
         let saveButton = UIAlertAction(title: "Save", style: .default) { (_) in
             
             guard let body = alert.textFields?.first?.text, !body.isEmpty else { return }
             
-            HypeController.shared.saveHype(body: body) { (success) in
-                DispatchQueue.main.async {
-                    if success {
+            if let hype = hype {
+                hype.body = body
+                HypeController.shared.update(hype) { (result) in
+                    switch result {
+                    case .success(_):
                         self.updateViews()
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            } else {
+                
+                
+                HypeController.shared.saveHype(body: body) { (success) in
+                    DispatchQueue.main.async {
+                        if success {
+                            self.updateViews()
+                        }
+                        
                     }
                 }
             }
         }
+        
+        
+        
         alert.addAction(saveButton)
         
         let cancelButton = UIAlertAction(title: "Nvm", style: .cancel)
         alert.addAction(cancelButton)
         
         present(alert, animated: true)
+    }
+    
+    //MARK: - Actions
+    
+    @IBAction func composeButtonTapped(_ sender: Any) {
+        presentAddHypeAlert(for: nil)
+        
     }
     
     
@@ -93,11 +123,37 @@ extension HypesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "hypeCell", for: indexPath)
+        
         let hype = HypeController.shared.hypes[indexPath.row]
         cell.textLabel?.text = hype.body
         cell.detailTextLabel?.text = hype.timestamp.formatDate()
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hype = HypeController.shared.hypes[indexPath.row]
+        presentAddHypeAlert(for: hype)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let hype = HypeController.shared.hypes[indexPath.row]
+            guard let index = HypeController.shared.hypes.firstIndex(of: hype) else { return }
+            HypeController.shared.delete(hype) { (result) in
+                switch result {
+                case .success(let success):
+                    if success {
+                        HypeController.shared.hypes.remove(at: index)
+                        DispatchQueue.main.async {
+                            tableView.deleteRows(at: [indexPath], with: .automatic)
+                        }
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
 }
 

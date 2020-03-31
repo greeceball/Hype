@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3422938F2433B05A00BCB762 /* HypeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422938E2433B05A00BCB762 /* HypeError.swift */; };
 		349DA2272432543100A4A842 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349DA2262432543100A4A842 /* AppDelegate.swift */; };
 		349DA2292432543100A4A842 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349DA2282432543100A4A842 /* SceneDelegate.swift */; };
 		349DA22E2432543100A4A842 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349DA22C2432543100A4A842 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3422938E2433B05A00BCB762 /* HypeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeError.swift; sourceTree = "<group>"; };
 		349DA2232432543100A4A842 /* Hype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349DA2262432543100A4A842 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		349DA2282432543100A4A842 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3422938D2433AD0500BCB762 /* Helpers + extensions */ = {
+			isa = PBXGroup;
+			children = (
+				34F8A60C24327007003C4924 /* DateExtension.swift */,
+				3422938E2433B05A00BCB762 /* HypeError.swift */,
+			);
+			path = "Helpers + extensions";
+			sourceTree = "<group>";
+		};
 		349DA21A2432543100A4A842 = {
 			isa = PBXGroup;
 			children = (
@@ -86,7 +97,6 @@
 		349DA23E243256B300A4A842 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				34F8A60C24327007003C4924 /* DateExtension.swift */,
 				349DA23A2432547200A4A842 /* Hype.entitlements */,
 				349DA2262432543100A4A842 /* AppDelegate.swift */,
 				349DA2282432543100A4A842 /* SceneDelegate.swift */,
@@ -108,6 +118,7 @@
 		34F8A60524325E6B003C4924 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3422938D2433AD0500BCB762 /* Helpers + extensions */,
 				34F8A60924326CB5003C4924 /* Model Controller */,
 				34F8A60824326C9A003C4924 /* View Controller */,
 			);
@@ -205,6 +216,7 @@
 				34F8A60D24327007003C4924 /* DateExtension.swift in Sources */,
 				34F8A60724325E7C003C4924 /* HypeController.swift in Sources */,
 				349DA2272432543100A4A842 /* AppDelegate.swift in Sources */,
+				3422938F2433B05A00BCB762 /* HypeError.swift in Sources */,
 				349DA2292432543100A4A842 /* SceneDelegate.swift in Sources */,
 				349DA241243257B700A4A842 /* Hype.swift in Sources */,
 			);
