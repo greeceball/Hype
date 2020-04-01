@@ -15,6 +15,9 @@
 		349DA2332432543500A4A842 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 349DA2312432543500A4A842 /* LaunchScreen.storyboard */; };
 		349DA23D2432547A00A4A842 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349DA23C2432547A00A4A842 /* CloudKit.framework */; };
 		349DA241243257B700A4A842 /* Hype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349DA240243257B700A4A842 /* Hype.swift */; };
+		34BE99CD2434F4DE00F47AF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE99CC2434F4DE00F47AF6 /* User.swift */; };
+		34BE99CF2434FC5B00F47AF6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE99CE2434FC5B00F47AF6 /* UserController.swift */; };
+		34BE99D12434FD2E00F47AF6 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE99D02434FD2E00F47AF6 /* UserError.swift */; };
 		34F8A60724325E7C003C4924 /* HypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8A60624325E7C003C4924 /* HypeController.swift */; };
 		34F8A60B24326CD0003C4924 /* HypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8A60A24326CD0003C4924 /* HypesViewController.swift */; };
 		34F8A60D24327007003C4924 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8A60C24327007003C4924 /* DateExtension.swift */; };
@@ -32,6 +35,9 @@
 		349DA23A2432547200A4A842 /* Hype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hype.entitlements; sourceTree = "<group>"; };
 		349DA23C2432547A00A4A842 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		349DA240243257B700A4A842 /* Hype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hype.swift; sourceTree = "<group>"; };
+		34BE99CC2434F4DE00F47AF6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		34BE99CE2434FC5B00F47AF6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		34BE99D02434FD2E00F47AF6 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		34F8A60624325E7C003C4924 /* HypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeController.swift; sourceTree = "<group>"; };
 		34F8A60A24326CD0003C4924 /* HypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypesViewController.swift; sourceTree = "<group>"; };
 		34F8A60C24327007003C4924 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -54,6 +60,7 @@
 			children = (
 				34F8A60C24327007003C4924 /* DateExtension.swift */,
 				3422938E2433B05A00BCB762 /* HypeError.swift */,
+				34BE99D02434FD2E00F47AF6 /* UserError.swift */,
 			);
 			path = "Helpers + extensions";
 			sourceTree = "<group>";
@@ -111,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				349DA240243257B700A4A842 /* Hype.swift */,
+				34BE99CC2434F4DE00F47AF6 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				34F8A60624325E7C003C4924 /* HypeController.swift */,
+				34BE99CE2434FC5B00F47AF6 /* UserController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -212,10 +221,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34BE99CF2434FC5B00F47AF6 /* UserController.swift in Sources */,
 				34F8A60B24326CD0003C4924 /* HypesViewController.swift in Sources */,
 				34F8A60D24327007003C4924 /* DateExtension.swift in Sources */,
+				34BE99D12434FD2E00F47AF6 /* UserError.swift in Sources */,
 				34F8A60724325E7C003C4924 /* HypeController.swift in Sources */,
 				349DA2272432543100A4A842 /* AppDelegate.swift in Sources */,
+				34BE99CD2434F4DE00F47AF6 /* User.swift in Sources */,
 				3422938F2433B05A00BCB762 /* HypeError.swift in Sources */,
 				349DA2292432543100A4A842 /* SceneDelegate.swift in Sources */,
 				349DA241243257B700A4A842 /* Hype.swift in Sources */,
