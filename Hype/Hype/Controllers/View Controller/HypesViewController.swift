@@ -81,11 +81,17 @@ class HypesViewController: UIViewController {
             } else {
                 
                 
-                HypeController.shared.saveHype(body: body) { (success) in
+                HypeController.shared.saveHype(body: body) { (result) in
                     DispatchQueue.main.async {
-                        if success {
+                        switch result {
+                        case .success(_):
                             self.updateViews()
+                        case .failure(let error):
+                            print(error)
                         }
+                        
+                            
+                        
                         
                     }
                 }

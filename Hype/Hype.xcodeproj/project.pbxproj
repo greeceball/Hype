@@ -18,6 +18,8 @@
 		34BE99CD2434F4DE00F47AF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE99CC2434F4DE00F47AF6 /* User.swift */; };
 		34BE99CF2434FC5B00F47AF6 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE99CE2434FC5B00F47AF6 /* UserController.swift */; };
 		34BE99D12434FD2E00F47AF6 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE99D02434FD2E00F47AF6 /* UserError.swift */; };
+		34BE99D42435184200F47AF6 /* HypeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34BE99D22435184200F47AF6 /* HypeList.storyboard */; };
+		34BE99D72435193B00F47AF6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE99D62435193B00F47AF6 /* SignUpViewController.swift */; };
 		34F8A60724325E7C003C4924 /* HypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8A60624325E7C003C4924 /* HypeController.swift */; };
 		34F8A60B24326CD0003C4924 /* HypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8A60A24326CD0003C4924 /* HypesViewController.swift */; };
 		34F8A60D24327007003C4924 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8A60C24327007003C4924 /* DateExtension.swift */; };
@@ -38,6 +40,8 @@
 		34BE99CC2434F4DE00F47AF6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		34BE99CE2434FC5B00F47AF6 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		34BE99D02434FD2E00F47AF6 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		34BE99D32435184200F47AF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Hype/Base.lproj/HypeList.storyboard; sourceTree = "<group>"; };
+		34BE99D62435193B00F47AF6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		34F8A60624325E7C003C4924 /* HypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeController.swift; sourceTree = "<group>"; };
 		34F8A60A24326CD0003C4924 /* HypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypesViewController.swift; sourceTree = "<group>"; };
 		34F8A60C24327007003C4924 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -85,7 +89,7 @@
 		349DA2252432543100A4A842 /* Hype */ = {
 			isa = PBXGroup;
 			children = (
-				349DA22C2432543100A4A842 /* Main.storyboard */,
+				34BE99D52435185C00F47AF6 /* StoryBoards */,
 				34F8A60524325E6B003C4924 /* Controllers */,
 				349DA23F243257A600A4A842 /* Model */,
 				349DA23E243256B300A4A842 /* Resources */,
@@ -123,6 +127,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		34BE99D52435185C00F47AF6 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				349DA22C2432543100A4A842 /* Main.storyboard */,
+				34BE99D22435184200F47AF6 /* HypeList.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
 		34F8A60524325E6B003C4924 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				34F8A60A24326CD0003C4924 /* HypesViewController.swift */,
+				34BE99D62435193B00F47AF6 /* SignUpViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -208,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34BE99D42435184200F47AF6 /* HypeList.storyboard in Resources */,
 				349DA2332432543500A4A842 /* LaunchScreen.storyboard in Resources */,
 				349DA2302432543500A4A842 /* Assets.xcassets in Resources */,
 				349DA22E2432543100A4A842 /* Main.storyboard in Resources */,
@@ -221,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34BE99D72435193B00F47AF6 /* SignUpViewController.swift in Sources */,
 				34BE99CF2434FC5B00F47AF6 /* UserController.swift in Sources */,
 				34F8A60B24326CD0003C4924 /* HypesViewController.swift in Sources */,
 				34F8A60D24327007003C4924 /* DateExtension.swift in Sources */,
@@ -251,6 +267,14 @@
 				349DA2322432543500A4A842 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		34BE99D22435184200F47AF6 /* HypeList.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34BE99D32435184200F47AF6 /* Base */,
+			);
+			name = HypeList.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

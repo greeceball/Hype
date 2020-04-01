@@ -13,6 +13,7 @@ enum HypeError: LocalizedError {
     case ckError(Error)
     case couldNotUnwrap
     case unexpectedRecordFound
+    case noUserLoggedIn
     
     var errorDescription: String {
         switch self {
@@ -22,6 +23,8 @@ enum HypeError: LocalizedError {
             return "Unable to get this Hype, That's not very Hype..."
         case .unexpectedRecordFound:
             return "Unexpected Record found when none should have been returned."
+        case .noUserLoggedIn:
+            return "No user was found to be logged into iCloud"
         }
     }
     

@@ -19,27 +19,30 @@ class HypeController {
     
     //MARK: - CRUD
     
-    func saveHype(body: String, completion: @escaping (Bool) -> Void) {
+    func saveHype(body: String, completion: @escaping (Result<Hype?, HypeError>) -> Void) {
         
+        guard let currentUser = UserController.sharedInstance.currentUser else { return completion(.failure(.noUserLoggedIn))}
         
-        let hype = Hype(body: body)
+        let reference = CKRecord.Reference(recordID: currentUser.recordID, action: .deleteSelf)
+        
+        let hype = Hype(body: body, userReference: reference)
         
         let record = CKRecord(hype: hype)
         
         publicDB.save(record) { (record, error) in
             if let error = error {
                 print(error, error.localizedDescription)
-                return completion(false)
+                return completion(.failure(.ckError(error)))
             }
             
             //record? we get record back as a confirmation that it was successfully saved, then we append the one we get back from the server to the source of truth
             guard let record = record,
-                let hype = Hype(ckRecord: record) else { return completion(false) }
+                let hype = Hype(ckRecord: record) else { return completion(.failure(.couldNotUnwrap)) }
             
             self.hypes.insert(hype, at: 0) // adds the hype to the front of the array
             
             //self.hypes.append(hype) // adds the hype to the end of the array
-            return completion(true)
+            return completion(.success(hype))
         }
     }
     func fetchAllHypes(completion: @escaping (Bool) -> Void) {

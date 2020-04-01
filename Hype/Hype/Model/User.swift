@@ -12,7 +12,7 @@ struct UserConstants {
     static let recordType = "User"
     fileprivate static let usernameKey = "username"
     fileprivate static let bioKey = "bio"
-    fileprivate static let appleUserRefKey = "appleUserRef"
+    static let appleUserRefKey = "appleUserRef"
 }
 
 class User {
@@ -67,7 +67,7 @@ extension User {
 extension CKRecord {
     
     /**
-     Convenience Initializer to init a CKRecord from a Hype Object
+     Convenience Initializer to init a CKRecord from a Uype Object
      
      - Parameters:
         - user: The User object to set Key/Value pairs for inside the CKRecord object

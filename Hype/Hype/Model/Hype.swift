@@ -13,6 +13,7 @@ struct HypeStrings {
     static let bodyKey = "body"
     static let timeStampKey = "timestamp"
     static let recordTypeKey = "Hype"
+    fileprivate static let userReferenceKey = "userReference"
 }
 
 //MARK: - Model
@@ -27,11 +28,14 @@ class Hype {
     // The unique identifier for our CKRecord
     var recordID: CKRecord.ID
     
-    init(body: String, timestamp: Date = Date(), recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)){
+    // creating a userReference to know
+    var userReference: CKRecord.Reference?
+    
+    init(body: String, timestamp: Date = Date(), recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), userReference: CKRecord.Reference?){
         self.body = body
         self.timestamp = timestamp
         self.recordID = recordID
-    
+        self.userReference = userReference
     }
 }
 
@@ -44,9 +48,9 @@ extension Hype {
         guard let body = ckRecord[HypeStrings.bodyKey] as? String,
             let timestamp = ckRecord[HypeStrings.timeStampKey] as? Date else { return nil }
         
-        
+        let userReference = ckRecord[HypeStrings.userReferenceKey] as? CKRecord.Reference
         //init
-        self.init(body: body, timestamp: timestamp, recordID: ckRecord.recordID)
+        self.init(body: body, timestamp: timestamp, recordID: ckRecord.recordID, userReference: userReference)
     }
 }
 
@@ -66,6 +70,9 @@ extension CKRecord {
             HypeStrings.timeStampKey: hype.timestamp
         ])
     
+        if let reference = hype.userReference {
+            self.setValue(reference, forKey: HypeStrings.userReferenceKey)
+        }
         
 //        // the other way to add properties
 //        self.setValue(hype.body, forKey: HypeStrings.bodyKey)

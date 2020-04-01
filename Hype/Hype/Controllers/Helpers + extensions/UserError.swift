@@ -12,4 +12,18 @@ enum UserError: LocalizedError {
     case ckError(Error)
     case noUserLoggedIn
     case couldNotUnwrap
+    
+    
+    var errorDescription: String {
+        switch self {
+            
+        case .ckError(let error):
+            return ("Cloudkit returned an error, Error: \(error.localizedDescription)")
+        case .noUserLoggedIn:
+            return "No user is currently logged in, please visit settings and check your iCloud status"
+        case .couldNotUnwrap:
+            return "Unable to unwrap the value"
+        }
+    }
+    
 }
